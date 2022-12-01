@@ -7,8 +7,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  final _fullNameController = TextEditingController();
-  final _usernameController = TextEditingController();
+  final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
   @override
@@ -23,15 +22,9 @@ class _RegisterPageState extends State<RegisterPage> {
           children: [
             const Text("Ingrese sus datos"),
             TextField(
-              controller: _fullNameController,
+              controller: _emailController,
               decoration: const InputDecoration(
-                hintText: "Nombre completo",
-              ),
-            ),
-            TextField(
-              controller: _usernameController,
-              decoration: const InputDecoration(
-                hintText: "Nombre de usuario",
+                hintText: "Email",
               ),
             ),
             TextField(
@@ -42,10 +35,12 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             ElevatedButton(
                 onPressed: () {
-                  // BlocProvider.of<AppCubit>(context)
-                  //     .login(_usernameController.text, _passwordController.text);
+                  Navigator.pushNamed(context, '/companyRegister');
                 },
-                child: const Text("Crear cuenta"))
+                child: const Text("Crear cuenta de empresa")),
+            ElevatedButton(
+                onPressed: () {},
+                child: const Text("Crear cuenta como persona"))
           ],
         ),
       ),

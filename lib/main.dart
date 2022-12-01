@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:manfred/ui/home_page.dart';
 import 'package:manfred/ui/login_page.dart';
-import 'package:manfred/ui/order_page.dart';
+import 'package:manfred/ui/company_register_page.dart';
 import 'package:manfred/ui/register_page.dart';
 
 import 'cubit/app_cubit.dart';
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           routes: {
             "/": (context) => const LoginPage(),
             "/home": (context) => const HomePage(),
-            "/newOrder": (context) => const OrderPage(),
+            "/companyRegister": (context) => const CompanyRegisterPage(),
             "/register": (context) => const RegisterPage(),
           },
         ));

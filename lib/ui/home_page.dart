@@ -53,6 +53,19 @@ class _HomePageState extends State<HomePage> {
                             Navigator.pop(context);
                           },
                           child: const Text("Salir")),
+
+                      //Boton para realizar un nuevo requerimiento
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              shape: const CircleBorder(),
+                              padding: const EdgeInsets.all(30)),
+                          child: const Icon(
+                            Icons.add,
+                            size: 30,
+                          ),
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/newRequirement');
+                          }),
                     ],
                   ),
                 );

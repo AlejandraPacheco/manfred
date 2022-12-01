@@ -7,9 +7,9 @@ class ResponseDto<T> {
 
   factory ResponseDto.fromJson(Map<String, dynamic> json) {
     return ResponseDto(
-      success: json['success'],
-      message: json['message'],
       data: json['data'],
+      message: json['message'],
+      success: json['success'],
     );
   }
 }
