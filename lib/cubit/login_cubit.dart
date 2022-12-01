@@ -6,27 +6,20 @@ import 'login_state.dart';
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(const LoginState());
 
-  Future<void> login(String username, String password) async {
+  Future<void> login(String email, String password) async {
     emit(state.copyWith(status: PageStatus.loading));
     try {
-      LoginResponseDto response = await LoginService.login(username, password);
-      if (response.success) {
-        emit(state.copyWith(
-            loginSuccess: true,
-            status: PageStatus.success,
-            token: response.token,
-            refreshToken: response.refreshToken));
-      } else if (!response.success) {
-        emit(state.copyWith(
-            loginSuccess: false,
-            status: PageStatus.success,
-            errorMessage: "Usuario o contraseña incorrectos"));
-      }
+      LoginResponseDto response = await LoginService.login(email, password);
+      emit(state.copyWith(
+          loginSuccess: true,
+          status: PageStatus.success,
+          token: response.token,
+          refreshToken: response.refresh));
     } on Exception catch (ex) {
       emit(state.copyWith(
           loginSuccess: false,
           status: PageStatus.failure,
-          errorMessage: "Error al intentar autenticar al usuario",
+          errorMessage: ex.toString(),
           exception: ex));
     }
   }
