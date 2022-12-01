@@ -23,24 +23,32 @@ class _LoginPageState extends State<LoginPage> {
             title: const Text("Login"),
           ),
           body: BlocConsumer<LoginCubit, LoginState>(
+            // Se escuchan los eventos provenientes del cubit
             listener: (ctx3, state) {
+              // Si el cubit dice cargando, se muestra un dialog de carga
               if (state.status == PageStatus.loading) {
                 _showDialog(context, "Autenticación",
                     "Verificando sus credenciales", false);
               } else if (state.status == PageStatus.success &&
                   state.loginSuccess) {
+                // Si el cubit dice que la autenticación fue exitosa, se cierra el dialog
+                // y se navega a la página de inicio /home
                 Navigator.pop(ctx3); // quito el dialog
                 Navigator.pushNamed(ctx3, '/home');
               } else {
+                // Si el cubit dice que la autenticación falló, se cierra el dialog
+                // y se muestra un mensaje de error
                 Navigator.pop(ctx3); // quito el dialog
                 _showDialog(context, "Error", state.errorMessage!, true);
               }
             },
+            // Se construye la pantalla
             builder: (context, state) => Center(child: formLogin(context)),
           )),
     );
   }
 
+  // Método que construye el formulario o pantalla de login
   Widget formLogin(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -59,6 +67,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
         ElevatedButton(
+            // Al presionar el botón, se envía el evento de login al cubit
             onPressed: () {
               BlocProvider.of<LoginCubit>(context)
                   .login(_usernameController.text, _passwordController.text);

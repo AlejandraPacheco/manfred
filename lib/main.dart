@@ -35,39 +35,3 @@ class MyApp extends StatelessWidget {
         ));
   }
 }
-
-// class MyHomePage extends StatelessWidget {
-//   const MyHomePage({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//         appBar: AppBar(
-//           title: const Text("Pedidos Ya!"),
-//         ),
-//         body: BlocBuilder<AppCubit, AppState>(
-//           builder: (BuildContext context, state) {
-//             if (!state.isUserLoggedIn) {
-//               return LoginPage();
-//             } else if (state.isUserLoggedIn) {
-//               return Center(
-//                 child: Column(
-//                   mainAxisAlignment: MainAxisAlignment.center,
-//                   children: [
-//                     Text("Bienvenido ${state.loginResponseDto!.firstName}"),
-//                     ElevatedButton(
-//                         onPressed: () {
-//                           BlocProvider.of<AppCubit>(context).logout();
-//                         },
-//                         child: const Text("Logout"))
-//                   ],
-//                 ),
-//               );
-//             } else {
-//               return const Center(child: Text("Error"));
-//             }
-//           },
-//         ) // This trailing comma makes auto-formatting nicer for build methods.
-//         );
-//   }
-// }

@@ -14,7 +14,7 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "email": "lramirez@gmail.com",
+  "email": "jperez@gmail.com",
   "password": "ABCabc123"
 }
 
@@ -27,6 +27,6 @@ Accept: application/json
 }
 ################# Consultar usuario
 
-GET http://localhost:7777/api/v1/user/
+GET http://localhost:7777/api/v1/person/
 Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJscmFtaXJleiIsInJvbGVzIjpbIkNSRUFSX1VTVUFSSU8iXSwiaXNzIjoidWNiIiwicmVmcmVzaCI6ZmFsc2UsImV4cCI6MTY2Nzk2MTAyN30.RfG54w8p2y5yFTi3K5Ysx6p0Kyai8afEX7VfLWECe4E
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqcGVyZXpAZ21haWwuY29tIiwicm9sZXMiOlsiQVBMSUNBUl9UUkFCQUpPIl0sImlzcyI6InVjYiIsInJlZnJlc2giOmZhbHNlLCJleHAiOjE2Njk5MDUxMDF9.mMeOXFMvaYplxi3E0uwWRdTt72-nDe1nouqjWZvP0pI
